@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('j_Cinetype.woff2') format('woff2'),
+                 url('j_Cinetype.woff') format('woff');
+        }
+        html, body {
+            font-family: 'CustomFont';
+            margin: 0;
+            line-height: 1.4;
+            height: 100%;
+            overflow: hidden;
+            color: #fb6569;
+        }
+        body {
+            padding: 1em 0 0 2em; /* Left padding is 2x top padding */
+            box-sizing: border-box;
+        }
+        p {
+            margin: 0;
+            word-wrap: break-word;
+            max-width: 100%;
+        }
+        a {
+            display: block;
+            color: #fb6569;
+            text-decoration: none;
+        }
+        @media (min-width: 768px) {
+            body {
+                font-size: 44pt;
+                padding: 44px 0 0 88px; /* Left padding is 2x top padding */
+            }
+        }
+        @media (max-width: 767px) {
+            body {
+                font-size: 20pt;
+                padding: 20px 0 0 40px; /* Left padding is 2x top padding */
+            }
+        }
+    </style>
+    <script>
+        function disableZoom(event) {
+            if (event.ctrlKey || event.metaKey) {
+                event.preventDefault();
+            }
+        }
+        function setEmailLink() {
+            const emailLink = document.getElementById('emailLink');
+            const date = new Date();
+            const formattedDate = `${date.getFullYear()} ${String(date.getMonth() + 1).padStart(2, '0')} ${String(date.getDate()).padStart(2, '0')}`;
+            emailLink.href = `mailto:contact@jonasgeorgdomeisen.com?subject=${formattedDate}%20contact`;
+        }
+        document.addEventListener('wheel', disableZoom, { passive: false });
+        document.addEventListener('keydown', disableZoom, { passive: false });
+    </script>
+</head>
+<body onload="setEmailLink()">
+    <p>
+        <a href="https://instagram.com/jonasgeorgdomeisen/">
+            jonasgeorgdomeîsen
+        </a>
+        <a id="emailLink" href="#">
+            contact@jonasgeorgdomeîsen.com
+        </a>
+    </p>
+</body>
+</html>
